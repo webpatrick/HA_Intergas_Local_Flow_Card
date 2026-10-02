@@ -277,8 +277,9 @@ elements:
     entity: sensor.xtreme_boiler_ot_dhw_flowrate
     icon: mdi:shower-head
     style:
-      top: 65%
+      top: 65.4%
       left: 8%
+      '--mdc-icon-size': 28px
     card_mod:
       style: |
         state-badge {

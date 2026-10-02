@@ -579,7 +579,9 @@ class XtendXtremeSchemaCard extends HTMLElement {
           <div class="txt xtreme-delta value-muted" id="xtremeDelta"></div>
           <div class="txt xtreme-return value-cold" id="xtremeReturn"></div>
           <ha-icon class="icon xtreme-icon" id="xtremeIcon"></ha-icon>
-          <ha-icon class="icon shower-icon" id="showerIcon" icon="mdi:shower-head"></ha-icon>
+          <div class="icon shower-icon-wrap" id="showerIconWrap">
+            <ha-icon class="shower-icon" id="showerIcon" icon="mdi:shower-head"></ha-icon>
+          </div>
 
           <div class="txt xtend-title" id="xtendTitle"></div>
           <div class="txt xtend-supply value-hot" id="xtendSupply"></div>
@@ -710,13 +712,18 @@ class XtendXtremeSchemaCard extends HTMLElement {
       .xtreme-delta { left: 19%; top: 25%; font-size: 1rem; }
       .xtreme-return { left: 19%; top: 34%; font-size: 1rem; }
       .xtreme-icon { left: 19%; top: 42%; color: var(--xtx-icon-inactive, var(--secondary-text-color)); }
-      .shower-icon {
-        left: 8.8%;
-        top: 65%;
-        width: 28px;
-        height: 28px;
+      .shower-icon-wrap {
+        left: 8%;
+        top: 65.4%;
         color: var(--xtx-icon-inactive, var(--secondary-text-color));
         opacity: 0.50;
+      }
+      .shower-icon {
+        --mdc-icon-size: 28px;
+        width: 28px;
+        height: 28px;
+        display: block;
+        flex: none;
       }
 
       .xtend-title { left: 46%; top: 10%; font-size: 1rem; font-weight: 700; }
@@ -760,6 +767,10 @@ class XtendXtremeSchemaCard extends HTMLElement {
         width: 32px;
         height: 32px;
         transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 0;
       }
       .pulse {
         animation: pulse 2s ease-in-out infinite;
