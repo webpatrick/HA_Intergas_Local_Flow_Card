@@ -713,8 +713,8 @@ class XtendXtremeSchemaCard extends HTMLElement {
       .xtreme-return { left: 19%; top: 34%; font-size: 1rem; }
       .xtreme-icon { left: 19%; top: 42%; color: var(--xtx-icon-inactive, var(--secondary-text-color)); }
       .shower-icon-wrap {
-        left: 8%;
-        top: 65.4%;
+        left: 8.6%;
+        top: 65.1%;
         color: var(--xtx-icon-inactive, var(--secondary-text-color));
         opacity: 0.50;
       }
