@@ -909,9 +909,17 @@ class XtendXtremeSchemaCard extends HTMLElement {
   }
 }
 
-customElements.define("intergas-local-flow-card-editor", XtendXtremeSchemaCardEditor);
-customElements.define("intergas-local-flow-card", XtendXtremeSchemaCard);
-customElements.define("xtend-xtreme-schema-card", XtendXtremeSchemaCard);
+const registerCustomElement = (tag, constructor) => {
+  if (!customElements.get(tag)) {
+    customElements.define(tag, constructor);
+  }
+};
+
+class XtendXtremeSchemaCardAlias extends XtendXtremeSchemaCard {}
+
+registerCustomElement("intergas-local-flow-card-editor", XtendXtremeSchemaCardEditor);
+registerCustomElement("intergas-local-flow-card", XtendXtremeSchemaCard);
+registerCustomElement("xtend-xtreme-schema-card", XtendXtremeSchemaCardAlias);
 
 window.customCards = window.customCards || [];
 window.customCards.push({
