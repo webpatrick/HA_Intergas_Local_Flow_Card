@@ -815,11 +815,11 @@ class XtendXtremeSchemaCard extends HTMLElement {
     this.style.setProperty("--xtx-cool-active", colors.coolActive);
 
     const xtremeActiveCheck = this._isOn(entities.xtreme_active_check || entities.xtreme_active);
-    const xtremeIsActive = this._isOn(entities.xtreme_is_active || entities.xtreme_active_check || entities.xtreme_active);
+    const dhwFlow = this._asNumber(entities.xtreme_dhw_flowrate);
+    const xtremeIsActive = this._isOn(entities.xtreme_is_active || entities.xtreme_active_check || entities.xtreme_active) || dhwFlow > 0;
     const xtendActiveCheck = this._isOn(entities.xtend_active_check || entities.xtend_active);
     const xtendIsActive = this._isOn(entities.xtend_is_active || entities.xtend_active_check || entities.xtend_active);
     const burnerActive = this._isOn(entities.burner_active);
-    const dhwFlow = this._asNumber(entities.xtreme_dhw_flowrate);
     const fanSpeed = this._asNumber(entities.fan_speed);
     const chFlow = this._asNumber(entities.ch_flow || entities.indoor_flow);
 
@@ -893,7 +893,7 @@ class XtendXtremeSchemaCard extends HTMLElement {
     const showerIcon = this.content.querySelector("#showerIcon");
     showerIcon.icon = "mdi:shower-head";
     this._setIconColor(showerIcon, dhwFlow > 0 ? colors.iconActive : colors.iconInactive);
-    showerIcon.style.opacity = dhwFlow > 0 ? "1" : "0.50";
+    this.content.querySelector("#showerIconWrap").style.opacity = dhwFlow > 0 ? "1" : "0.50";
     
     this._setTapTarget("#indoorTemp", entities.indoor_temperature);
     this._setTapTarget("#dhwFlow", entities.xtreme_dhw_flowrate);
